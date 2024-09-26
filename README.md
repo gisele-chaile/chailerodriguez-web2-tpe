@@ -1,2 +1,10 @@
-![Diagrama](https://github.com/user-attachments/assets/896d262c-007d-477b-9c44-2d966cce6da5)
-Nuestro objetivo es crear una base de datos que relacione la cantidad de libros existentes en una biblioteca virtual de un determinado lector. Allí el lector podrá acceder a los libros adquiridos y también dejar opiniones o reseñas para otros lectores.
+INTEGRANTRES: Gisele Chaile DNI:35333906
+            Rocío Gisele Rodriguez DNI:35418532
+
+TEMA: Biblioteca virtual
+
+Nuestra base de datos es la de una biblioteca virtual, donde están cargados los libros con una breve descripción. Cada uno de ellos se ubica dentro de una categoría de acuerdo a su género.
+La relación entre las tablas es de 1 a N, donde una biblioteca (1) contiene varios libros (N).
+
+
+![Diagrama](https://github.com/user-attachments/assets/8dd4cfe0-d64b-4129-a6a3-a5a8a235bd50)
