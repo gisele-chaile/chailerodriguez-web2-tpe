@@ -64,36 +64,47 @@ class LibrosControlador {
                 }
             }
         }
+        
+        if(!empty($libros))
+            return $this->vista->listarLibros($libros);
+        else
+            return $this->vista->mostrarError('Error');
+           
     }
 
 
     public function agregarLibro(){
-        if (empty($_POST['Titulo'])){
-            return $this->vista->mostrarError('Por favor ingrese un nombre');
-        }
-        if (empty($_POST['Autor'])){
-            return $this->vista->mostrarError('Por favor complete el autor');
-        }
-        if (empty($_POST['Reseña'])){
-            return $this->vista->mostrarError('Por favor complete la reseña');
-        }
-        if (empty($_POST['Año'])){
-            return $this->vista->mostrarError('Por favor complete el año de publicación');
-        }
-        if (empty($_POST['genero'])){
-            return $this->vista->mostrarError('Por favor complete el género');
-        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //Si el formulario ha sido enviado
+            if (empty($_POST['Titulo'])){
+                return $this->vista->mostrarError('Por favor ingrese un nombre');
+            }
+            if (empty($_POST['Autor'])){
+                return $this->vista->mostrarError('Por favor complete el autor');
+            }
+            if (empty($_POST['Reseña'])){
+                return $this->vista->mostrarError('Por favor complete la reseña');
+            }
+            if (empty($_POST['Año'])){
+                return $this->vista->mostrarError('Por favor complete el año de publicación');
+            }
+            if (empty($_POST['genero'])){
+             return $this->vista->mostrarError('Por favor complete el género');
+            }
 
 
         $Titulo = $_POST['Titulo'];
         $Autor = $_POST['Autor'];
         $Reseña = $_POST['Reseña'];
         $Año = $_POST['Año'];
-        $ID_genero = $_POST['Genero'];
+        $genero = $_POST['ID_genero'];
 
-        $this->modelo->agregarLibro($Titulo, $Autor, $Reseña, $Año, $ID_genero);
-        header('Location: ' . BASE_URL . 'mostrar-libros');
+        $id=$this->modelo->agregarLibro($Titulo, $Autor, $Reseña, $Año, $genero);
+        header('Location: ' . BASE_URL . 'listar-libros');
+    }else{
+        $this->mostrarFormulario();
     }
+}
 
     public function editarLibro($id) {
         $libro = $this->modelo->obtenerLibro($id);
@@ -126,7 +137,7 @@ class LibrosControlador {
 
             $this->modelo->actualizarLibro($id, $titulo, $autor, $reseña, $año, $genero);
 
-            header('Location: ' . BASE_URL . 'mostrar-libros');
+            header('Location: ' . BASE_URL . 'listar-libros');
         }
         else{
             $this->mostrarFormulario($libro); 
@@ -149,7 +160,7 @@ class LibrosControlador {
             return $this->vista->mostrarError("No existe el libro con el id=$id");
         }
         $this->modelo->eliminarLibro($id);
-        header('Location: ' . BASE_URL . 'mostrar-libros');
+        header('Location: ' . BASE_URL . 'listar-libros');
     }
 
 }
