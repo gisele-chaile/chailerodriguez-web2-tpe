@@ -2,8 +2,8 @@
 
 require_once 'app/modelos/generos.modelo.php';
 require_once 'app/vistas/generos.vista.php';
-require_once 'app/modelos/libros.modelo.php';
-
+//require_once 'app/modelos/libros.modelo.php';
+//require_once 'app/vistas/libros.vista.php';
 
 class GenerosControlador {
 
@@ -27,7 +27,12 @@ class GenerosControlador {
 
     public function listarGeneros(){
         $generos= $this->modelo->obtenerGeneros();
-        return $this->vista->listarGeneros($generos);
+
+        if(!empty($generos))
+            return $this->vista->listarGeneros($generos);
+        else
+            return $this->vista->mostrarError('Error');
+           
     }
     function agregarGenero(){
     
@@ -95,7 +100,7 @@ class GenerosControlador {
             $descripcion = $_POST['Descripcion'];
             $generosrelacionados = $_POST['Relacionado'];
         
-            // actualiza el genero
+            // actualiza el libro
             $this->modelo->actualizarGenero($id, $nombre, $descripcion, $generosrelacionados);
 
             header('Location: ' . BASE_URL . 'mostrar-generos');      
