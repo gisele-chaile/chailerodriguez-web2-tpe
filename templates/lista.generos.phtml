@@ -1,0 +1,15 @@
+<?php require 'templates/layouts/header.phtml'?>
+
+<ul class="list-group ">
+<h2>Géneros</h2>
+<?php foreach ($generos as $genero): ?>
+    <li class="list-group-item m-2 item-autor">
+        <div class="container-fluid ">
+            <a href="<?= BASE_URL . 'libroPorGenero' . $genero->ID_genero ?>" class="fs-2 m-2"><?= $genero->Nombre?></a>
+        </div>
+        
+    </li>
+<?php endforeach?>
+</ul> 
+
+<?php require 'templates/layouts/footer.phtml'?>
