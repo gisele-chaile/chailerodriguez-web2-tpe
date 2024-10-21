@@ -2,8 +2,8 @@
 
 require_once 'app/modelos/generos.modelo.php';
 require_once 'app/vistas/generos.vista.php';
-//require_once 'app/modelos/libros.modelo.php';
-//require_once 'app/vistas/libros.vista.php';
+require_once 'app/modelos/libros.modelo.php';
+
 
 class GenerosControlador {
 
@@ -95,7 +95,7 @@ class GenerosControlador {
             $descripcion = $_POST['Descripcion'];
             $generosrelacionados = $_POST['Relacionado'];
         
-            // actualiza el libro
+            // actualiza el genero
             $this->modelo->actualizarGenero($id, $nombre, $descripcion, $generosrelacionados);
 
             header('Location: ' . BASE_URL . 'mostrar-generos');      
