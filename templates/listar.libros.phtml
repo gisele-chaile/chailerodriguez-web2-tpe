@@ -11,8 +11,10 @@
                 </div>
                 
                 <div class="actions">
+                    <a href="agregar-libro<?= $libro->ID_libro ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Agregar</a>
                     <a href="editar-libro<?= $libro->ID_libro ?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
                     <a href="eliminar-libro<?= $libro->ID_libro ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                
                 </div>
             </li>
         <?php endforeach ?>
