@@ -35,10 +35,12 @@ class UsuarioControlador {
             $usuarioFromDB = $this->modelo->obtenerUsuario($usuario);
 
             if($usuarioFromDB && password_verify($contraseña, $usuarioFromDB->contraseña)){ 
-
+                session_start();
                 $_SESSION['ID_usuario'] = $usuarioFromDB->ID_usuario;
                 $_SESSION['usuario'] = $usuarioFromDB->usuario;
+                $_SESSION['LAST_ACTIVITY'] = time();
                 $_SESSION['mensaje'] = 'Has iniciado sesión correctamente';
+                       
                 header('Location: ' . BASE_URL . 'listar-libros/'); //para mostrar los libros y poder editar, eliminar y agregar
         
         } else {
