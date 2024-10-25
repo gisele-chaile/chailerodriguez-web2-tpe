@@ -8,8 +8,8 @@
             <b><?=$genero->Nombre?> | <?=$genero->Descripcion ?> |<?= $genero->Relacionado ?></b>  
         </div>
         <div class="actions">
-            <a href="editar-genero/<?= $genero->ID_genero ?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
-            <a href="eliminar-genero/<?= $genero->ID_genero ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+            <a href="<?= BASE_URL . 'editar-genero/' .  $genero->ID_genero?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
+            <a href="<?= BASE_URL . 'eliminar-genero/' .  $genero->ID_genero?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
         </div>
     </li>
 <?php endforeach ?>
