@@ -11,8 +11,8 @@ class UsuarioModelo {
         $query = $this->db->prepare("SELECT * FROM usuario WHERE usuario = ?");
         $query->execute([$usuario]);
     
-        $usuario = $query->fetch(PDO::FETCH_OBJ);
+        $usuarioCreado = $query->fetch(PDO::FETCH_OBJ);
     
-        return $usuario;
+        return $usuarioCreado;
     }
 }
