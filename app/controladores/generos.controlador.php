@@ -77,7 +77,7 @@ class GenerosControlador {
     }
 
     function editarGenero($id) {
-        $genero = $this->modelo->obtenerGeneros($id);
+        $genero = $this->modelo->obtenerGenero($id);
 
         if (!$genero) {
             return $this->vista->mostrarError(" Genero inexistente");
@@ -104,6 +104,8 @@ class GenerosControlador {
             $this->modelo->actualizarGenero($id, $nombre, $descripcion, $generosrelacionados);
 
             header('Location: ' . BASE_URL . 'mostrar-generos');      
+        }else{
+            $this->mostrarFormulario($genero); 
         }
     }
     function mostrarFormulario($genero = null){
