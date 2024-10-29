@@ -40,9 +40,12 @@ class UsuarioControlador {
                 $_SESSION['usuario'] = $usuarioFromDB->usuario;
                 $_SESSION['LAST_ACTIVITY'] = time();
                 $_SESSION['mensaje'] = 'Has iniciado sesión correctamente';
-                       
-                header('Location: ' . BASE_URL . 'listar-libros/'); //para mostrar los libros y poder editar, eliminar y agregar
-        
+                
+                       //para comprobar si el usuario se loguea correctamente
+             if($usuarioFromDB){ 
+             var_dump($usuarioFromDB);
+            var_dump(password_verify($contraseña, $usuarioFromDB->contraseña));
+             }       
         } else {
                 return $this->vista->mostrarLogin('Datos incorrectos');
             }
