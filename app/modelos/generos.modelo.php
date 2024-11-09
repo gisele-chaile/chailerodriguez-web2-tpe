@@ -49,31 +49,14 @@ class GenerosModelo{
         $query=$this->db->prepare('DELETE FROM genero WHERE ID_genero = ?');
         return $query->execute([$id]);//retorna true si se eliminó correctamente
     }
-    public function editarGenero($id, $nombre, $descripcion, $generosrelacionados) {
-        // Validaciones simples
-        if (empty($id) || empty($nombre)) {
-            throw new Exception("El ID y el nombre no pueden estar vacíos.");
-        }
+
     
-        // Preparar la consulta SQL
-        $query = $this->db->prepare('UPDATE genero SET nombre = ?, descripcion = ?, Relacionado = ? WHERE ID_genero = ?');
-    
-        try {
-            // Ejecutar la consulta con los parámetros proporcionados
-            return $query->execute([$nombre, $descripcion, $generosrelacionados, $id]);
-        } catch (Exception $e) {
-            // Manejo de errores
-            throw new Exception("Error al editar género: " . $e->getMessage());
-        }
-    }
-    
-    public function actualizarGenero($nombre, $descripcion, $generosrelacionados ) {      
+    public function actualizarGenero($id,$nombre, $descripcion, $generosrelacionados ) {      
             $query = $this->db->prepare('UPDATE genero SET Nombre = ?, Descripcion = ?, Relacionado = ?, WHERE ID_genero = ?');
-            $query->execute([$nombre, $descripcion, $generosrelacionados ]);
+            $query->execute([$nombre, $descripcion, $generosrelacionados,$id]);
         } 
 
     
  }
-
  
 
