@@ -88,9 +88,6 @@ class LibrosControlador {
             if (empty($_POST['Año'])){
                 return $this->vista->mostrarError('Por favor complete el año de publicación');
             }
-            if (empty($_POST['genero'])){
-             return $this->vista->mostrarError('Por favor complete el género');
-            }
 
 
         $Titulo = $_POST['Titulo'];
@@ -144,13 +141,12 @@ class LibrosControlador {
         }
     }
 
-    public function mostrarFormulario($libro = null){
+    public function mostrarFormulario($libros = null){
         //obtener la lista de generos disponibles 
         $generos = $this->generosModelo->obtenerGeneros();
         //mostrar el formulario con los generos y el libro si existe
-        $this->vista->mostrarFormulario($generos, $libro);
+        $this->vista->mostrarFormulario($generos, $libros);
     }
-
 
     public function eliminarLibro($id){
         //obtener el libro por id 
