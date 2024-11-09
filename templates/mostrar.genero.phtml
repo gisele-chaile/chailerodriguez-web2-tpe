@@ -1,18 +1,18 @@
-<?php require 'templates/layouts/header.phtml'; ?>
+<?php require 'templates/layouts/header.phtml'?>
 
 <div class="container">
-    <h2>Género</h2>
-    <ul class="list-group">
-        <?php if (isset($genero) && $genero !== false): ?>
-            <li class="list-group-item m-2 item-genero">
-                <div class="container-fluid">
-                    <a href="<?= BASE_URL . 'libro-genero/' . $genero->ID_genero ?>" class="fs-2 m-2"><?= htmlspecialchars($genero->Nombre) ?></a>
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body mt-5">
+                    <h2><?= $genero->Nombre ?></h2>
+                    <p><span>Descripción: </span><?= $genero->Descripcion ?></p>
+                    <p><span>Géneros relacionados: </span><?= $genero->Relacionado ?></p>
+                    <a href="<?= BASE_URL . 'libro-genero/' . $genero->ID_genero ?>" class="card-subtitle mt-3">Libros por genero</a>
                 </div>
-            </li>
-        <?php else: ?>
-            <li class="list-group-item m-2">No se encontró información sobre este género.</li>
-        <?php endif; ?>
-    </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
-<?php require 'templates/layouts/footer.phtml'; ?>
+<?php require 'templates/layouts/footer.phtml'?>
