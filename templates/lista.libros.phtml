@@ -9,11 +9,10 @@
                     <div class="card-body card-libro ">
                         <h5 class="card-title m-0"><?= $libro->Titulo ?></h5>
                         <h6 class="card-subtitle mt-3"><?= $libro->Autor ?></h6>
-                        <h6 class="card-subtitle mt-3"><?= $libro->Reseña ?></h6>
                         <h6 class="card-subtitle mt-3"><?= $libro->Año ?></h6>
                         <h6 class="card-subtitle mt-3"><?= $libro->genero->Nombre ?></h6>
                     </div>
-                    <a href="<?= BASE_URL . 'mostrar-libro' . $libro->ID_libro ?>"  class="btn btn-primary m-3 w-50">Ver más</a> 
+                    <a href="<?= BASE_URL . 'mostrar-libro/' . $libro->ID_libro ?>"  class="btn btn-primary m-3 w-50">Reseña</a> 
                     
             </div>
         <?php 
