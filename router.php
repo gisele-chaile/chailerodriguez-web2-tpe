@@ -1,24 +1,10 @@
-// tabla de ruteo
-
-// mostrar-libros  -> LibrosControlador->mostrarLibros();
-// mostrar-libro  -> LibrosControlador->mostrarLibro();
-// mostrar-generos  -> GenerosControlador->mostrarGeneros();
-// mostrar-genero  -> GenerosControlador->mostrarGenero();
-// libro-genero  -> LibrosControlador->mostrarLibrosPorGenero();
-// listar-libros  -> LibrosControlador->listarLibros();
-// listar-generos  -> GenerosControlador->listarGeneros();
-// formulario-libros  -> LibrosControlador->mostrarFormulario();
-// formulario-generos  -> GenerosControlador->mostrarFormulario();
-// agregar-libro  -> LibrosControlador->agregarLibro();
-// agregar-genero -> GenerosControlador->agregarGenero();
-// eliminar-libro  -> LibrosControlador->eliminarLibro();
-// eliminar-genero -> GenerosControlador->eliminarGenero();
-// editar-libro  -> LibrosControlador->editarLibro();
-// editar-genero -> GenerosControlador->editarGenero();
-// mostrar-login  -> UsuarioControlador->mostrarLogin();
-// login  -> UsuarioControlador->login();
-// logout  -> UsuarioControlador->logout();
-
+<!-- 
+    mostrarLibros     mostrarLibros()
+    mostrarLibro:/id   mostrarLibro(:id)
+    mostrarGeneros      mostrarGeneros()
+    libro-genero   mostrarLibrosPorGenero(:autor)
+    
+-->
 <?php
 require_once 'libreria/respuesta.php';
 require_once 'app/middlewares/autenticar.sesion.php';
@@ -82,12 +68,6 @@ switch ($parametros[0]){
         $controlador = new LibrosControlador($respuesta);
         $controlador->mostrarFormulario();
         break; 
-     case 'formulario-libro':
-        autenticarSesion($respuesta);
-        verificarSesion($respuesta);
-        $controlador = new LibrosControlador($respuesta);
-        $controlador->mostrarFormulario();
-        break;
     case 'formulario-genero':
         autenticarSesion($respuesta);
         verificarSesion($respuesta);
@@ -142,7 +122,7 @@ switch ($parametros[0]){
         
     case 'logout':
         $controlador = new UsuarioControlador();
-        $controlador->logout($usuario);
+        $controlador->logout();
         break;
 
         default: 
