@@ -1,4 +1,4 @@
 <?php
     class Respuesta {
-        public $usuario = 'webadmin';
+        public $usuario = null;
     }
