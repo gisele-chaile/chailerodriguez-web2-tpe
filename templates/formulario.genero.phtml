@@ -1,8 +1,8 @@
 <?php require 'templates/layouts/header.phtml'?>
 
 <div class="container">
-    <h1><?= $genero ? 'Editar' : 'Agregar' ?></h1>
-    <form action="<?= $genero ? BASE_URL . 'editar-genero/' . $genero->ID_genero : 'agregar-genero' ?>" method="POST">
+    <h1><?= $genero ? 'Editar' : 'Agregar' ?> Genero</h1>
+    <form action="<?= $genero ? BASE_URL . 'editar-genero/' . $genero->ID_genero : BASE_URL . 'agregar-genero/' ?>" method="POST">
         <div class="mb-3">
             <label for="Nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="Nombre" name="Nombre" value="<?= $genero ? $genero->Nombre : '' ?>">
