@@ -48,16 +48,10 @@ class LibrosModelo {
         return $id; 
     }
 
-    public function editarLibro($id, $titulo, $autor, $reseña, $año, $genero){
-        $query = $this->db->prepare('UPDATE libros SET Titulo = ?, Autor = ?, Reseña = ?, Año = ?, ID_genero = ? WHERE id = ?');
-        $query->execute([$titulo, $autor, $reseña, $año, $genero,$id ]);
-       
-    }
-
-    public function actualizarLibro($titulo, $autor, $reseña, $año, $genero) {
-        $query = $this->db->prepare('UPDATE libros SET Titulo = ?, Autor = ?, Reseña = ?, Año = ?, ID_genero = ? ');
+    public function actualizarLibro($id,$titulo, $autor, $reseña, $año, $genero) {
+        $query = $this->db->prepare('UPDATE libros SET Titulo = ?, Autor = ?, Reseña = ?, Año = ?, ID_genero = ? WHERE ID_libro = ?');
         //revisar si agrego imágenes para pasar el parámetro
-        $query->execute([$titulo, $autor, $reseña, $año, $genero]);  
+        $query->execute([$titulo, $autor, $reseña, $año, $genero,$id]);  
     }
 
     public function eliminarLibro($id){
