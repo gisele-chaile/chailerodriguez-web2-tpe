@@ -9,7 +9,7 @@ class LibrosVista {
     }
 
     public function mostrarLibros($libros){
-        $count = count($libros); //cantidad de libros
+       
         require 'templates/lista.libros.phtml';
     }
 
@@ -17,33 +17,16 @@ class LibrosVista {
         require 'templates/mostrar.libro.phtml';
     }
 
-    public function mostrarLibroPorGenero($genero, $libros){
-        require 'templates/genero.phtml';
-    }
-
     public function listarLibros($libros){
         require 'templates/listar.libros.phtml';
     }
 
     public function mostrarFormulario($generos, $libro = null){ //si libro es null se muestra el formulario vacío 
-        require 'templates/formulario.libro';
+        require 'templates/formulario.libro.phtml';
     }
     
     public function mostrarError($error){
         require 'templates/error.phtml';
-    }
-
-
-    public function editarLibro($libro){
-    require 'templates/formulario.libro.phtml';  
-    }
-
-    public function agregarLibro(){
-        require 'templates/formulario.libro.phtml';
-    }
-
-    public function actualizarLibro($libros){
-        require 'templates/listar.libros.phtml';
     }
 
 
