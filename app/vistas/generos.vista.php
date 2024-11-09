@@ -9,7 +9,7 @@ class GenerosVista {
     }
 
     public function mostrarGeneros($generos){
-        $count = count($generos); //cantidad de generos
+        
         require 'templates/lista.generos.phtml';
 
     }
@@ -21,7 +21,6 @@ class GenerosVista {
         require 'templates/listar.generos.phtml';
     }
     
-
     public function mostrarFormulario($genero = null){
         require 'templates/formulario.genero.phtml';
     }
@@ -30,15 +29,7 @@ class GenerosVista {
         require 'templates/error.phtml';
     }
 
-
-    public function editarGenero($nombre,$descripcion,$generosrelacionaos,$id){
-        require 'templates/formulario.editar.genero.php';
-    }
-    public function agregarGenero($nombre,$descripcion,$generosrelacionaos,$id){
-        require 'templates/formulario.agregar.genero.phtml';
-    }
 }
-
 
 
 
