@@ -3,17 +3,20 @@
 require_once 'app/modelos/generos.modelo.php';
 require_once 'app/vistas/generos.vista.php';
 require_once 'app/modelos/libros.modelo.php';
-
+//require_once 'app/vistas/libros.vista.php';
 
 class GenerosControlador {
 
     private $modelo;
     private $vista;
+    private $librosModelo;
     
 
     public function __construct($respuesta = null) {
         $this->modelo = new GenerosModelo();
         $this->vista = new GenerosVista($respuesta ? $respuesta->usuario: null);
+        $this->librosModelo = new LibrosModelo();
+
     }
     
     function mostrarGeneros() {
@@ -59,7 +62,9 @@ class GenerosControlador {
             // inserto el genero
 
             $id = $this->modelo->agregarGenero($nombre,$descripcion,$generosrelacionados);
-            header("location: ". BASE_URL.'mostrar-generos');
+            header("location: ". BASE_URL.'listar-generos');
+        }else{
+            $this->mostrarFormulario();
         }
     }
     
@@ -72,12 +77,12 @@ class GenerosControlador {
 
         }
         $this->modelo->borrarGenero($id);
-        header("location: " . BASE_URL. 'mostrar-generos');
+        header("location: " . BASE_URL. 'listar-generos');
 
     }
 
     function editarGenero($id) {
-        $genero = $this->modelo->obtenerGenero($id);
+        $genero = $this->modelo->obtenerGeneros($id);
 
         if (!$genero) {
             return $this->vista->mostrarError(" Genero inexistente");
@@ -103,12 +108,13 @@ class GenerosControlador {
             // actualiza el libro
             $this->modelo->actualizarGenero($id, $nombre, $descripcion, $generosrelacionados);
 
-            header('Location: ' . BASE_URL . 'mostrar-generos');      
+            header('Location: ' . BASE_URL . 'listar-generos');      
         }else{
-            $this->mostrarFormulario($genero); 
+            $this->mostrarFormulario();
         }
     }
     function mostrarFormulario($genero = null){
-        $this->vista->mostrarFormulario($genero);
+        $libros = $this->librosModelo->obtenerLibros();
+        $this->vista->mostrarFormulario($genero,$libros);
     }
 }
