@@ -1,20 +1,10 @@
 <?php require 'templates/layouts/header.phtml'?>
 
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action"><h2><?= $genero->Nombre ?></h2></a>
 
-
-<div class="container">
-    <div class="card mb-3">
-        <div class="row g-0">
-            <div class="col-md-8">
-                <div class="card-body mt-5">
-                    <h2><?= $genero->Nombre ?></h2>
-                    <p><span>Descripción: </span><?= $genero->Descripcion ?></p>
-                    <p><span>Géneros relacionados: </span><?= $genero->Relacionado ?></p>
-                    <a href="<?= BASE_URL . 'libro-genero/' . $genero->ID_genero ?>" class="card-subtitle mt-3">Libros por genero</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><p><span>Descripción: </span><?= $genero->Descripcion ?></p></a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"><p><span>Géneros relacionados: </span><?= $genero->Relacionado ?></p></a>
+  <a href="<?= BASE_URL . 'libro-genero/' . $genero->ID_genero ?>" class="list-group-item list-group-item-action list-group-item-success">Libros por genero</a>
 
 <?php require 'templates/layouts/footer.phtml'?>
