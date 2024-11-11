@@ -18,7 +18,7 @@ class LibrosVista {
     }
 
     public function listarLibros($libros){
-        require 'templates/listar.libros.phtml';
+        require 'templates/libros.login.phtml';
     }
 
     public function mostrarFormulario($generos, $libro = null){ //si libro es null se muestra el formulario vacío 
