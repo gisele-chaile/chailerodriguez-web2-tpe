@@ -1,10 +1,14 @@
 <?php require 'templates/layouts/header.phtml'?>
 
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action"><h2><?= $genero->Nombre ?></h2></a>
-
-  <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><p><span>Descripción: </span><?= $genero->Descripcion ?></p></a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"><p><span>Géneros relacionados: </span><?= $genero->Relacionado ?></p></a>
+  <ul class="list-group">
+    <li class="list-group-item"><h2><?= $genero->Nombre ?></h2></li>
+    <li class="list-group-item list-group-item-primary"><b><?=$genero->Nombre?> </b></li>
+    <li class="list-group-item list-group-item-secondary"><b><?=$genero->Descripcion ?> </b></li>
+    <li class="list-group-item list-group-item-success"><h6>Genero relacionado</h6><?= $genero->Relacionado ?></b></li>
+  </ul>    
+<div class="actions"> 
   <a href="<?= BASE_URL . 'libro-genero/' . $genero->ID_genero ?>" class="list-group-item list-group-item-action list-group-item-success">Libros por genero</a>
-
+  
+</div>
 <?php require 'templates/layouts/footer.phtml'?>
