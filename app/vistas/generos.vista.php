@@ -18,7 +18,7 @@ class GenerosVista {
     }
 
     public function listarGeneros($generos){
-        require 'templates/listar.generos.phtml';
+        require 'templates/generos.login.phtml';
     }
     
     public function mostrarFormulario($genero = null){
