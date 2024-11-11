@@ -1,0 +1,17 @@
+<?php require 'templates/layouts/header.phtml' ?>
+<div class="list-group">
+    <ul class="list-group">
+        <li class="list-group-item"><h2>Generos</h2></li>
+        <?php foreach($generos as $genero): ?>
+        <li class="list-group-item list-group-item-primary"><b><?=$genero->Nombre?> </b></li>
+        <li class="list-group-item list-group-item-secondary"><b><?=$genero->Descripcion ?> </b></li>
+        <li class="list-group-item list-group-item-success"><h6>Genero relacionado</h6><?= $genero->Relacionado ?></b></li>
+ 
+    </ul>
+    <div class="actions">
+        <a href="<?='editar-genero/'. $genero->ID_genero ?>" type="button" class="list-group-item list-group-item-action list-group-item-secondary">Editar</a>
+        <a href="<?= 'eliminar-genero/'. $genero->ID_genero ?>" type="button"class="list-group-item list-group-item-action list-group-item-success">Eliminar</a>
+            <?php endforeach ?>
+    </div> 
+</div>
+<?php require 'templates/layouts/footer.phtml' ?>
