@@ -82,7 +82,7 @@ class GenerosControlador {
     }
 
     function editarGenero($id) {
-        $genero = $this->modelo->obtenerGeneros($id);
+        $genero = $this->modelo->obtenerGenero($id);
 
         if (!$genero) {
             return $this->vista->mostrarError(" Genero inexistente");
