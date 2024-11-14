@@ -1,0 +1,29 @@
+<?php require 'templates/layouts/header.phtml'?>
+
+<div class="container">
+<h1><?= $genero ? 'Editar' : 'Agregar' ?> Género</h1>
+
+    <form action="<?= $genero ? BASE_URL . 'editar-genero/' . $genero->ID_genero : BASE_URL . 'agregar-genero/' ?>" method="POST">
+
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input required name="Nombre" type="text" class="form-control" value="<?=$genero ? $genero->Nombre : ''?>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="form-control" name="Descripcion" value="<?= $genero ? $genero->Descripcion : '' ?>">
+        </div>
+
+        <div class="form-group">
+            <label>Géneros relacionados</label>
+            <input type="text" class="form-control" name="Relacionado" value="<?= $genero ? $genero->Relacionado : '' ?>">
+
+      
+        <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+    </form>
+</div>
+<?php require 'templates/layouts/footer.phtml'?>

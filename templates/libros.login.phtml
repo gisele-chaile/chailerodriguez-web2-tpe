@@ -1,0 +1,23 @@
+<?php require 'templates/layouts/header.phtml' ?>
+
+<div class="container">
+    <h2 class="pb-4">Libros</h2>
+        <ul class="list-group mt-4">
+        <?php foreach($libros as $libro): ?>
+           <li class="list-group-item item-task">
+                <div class="label">
+                    <b><?=$libro->Titulo?> | <?=$libro->Autor ?>| <?=$libro->Reseña ?> |<?= $libro->Año?> | <?= $libro->genero->Nombre?> </b>  
+                     
+                </div>
+                
+                <div class="actions">
+                    <a href="<?= BASE_URL.'editar-libro/'. $libro->ID_libro ?>" type="button" class='btn btn-success btn-sm ml-auto'>Editar</a>
+                    <a href="<?=BASE_URL.'eliminar-libro/'. $libro->ID_libro ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                
+                </div>
+            </li>
+        <?php endforeach ?>
+        </ul>
+</div>
+
+<?php require 'templates/layouts/footer.phtml'?>

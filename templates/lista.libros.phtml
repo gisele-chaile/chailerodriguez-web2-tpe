@@ -1,0 +1,26 @@
+<?php require 'templates/layouts/header.phtml'?>
+
+<div class="container">
+    <h2 class="pb-4">Libros</h2>
+
+    <?php if (empty($libros)): ?>
+        <div class="alert alert-warning" role="alert">
+            No hay libros disponibles.
+        </div>
+    <?php else: ?>
+        <ul class="list-group mt-4">
+            <?php foreach ($libros as $libro): ?>
+                <li class="list-group-item item-task">
+                    <div class="label">
+                        <b><?= htmlspecialchars($libro->Titulo) ?> | <?= htmlspecialchars($libro->Autor) ?> | <?= htmlspecialchars($libro->Reseña) ?> | <?= htmlspecialchars($libro->Año) ?> | <?= htmlspecialchars($libro->genero->Nombre) ?></b>
+                    </div>
+                    <div class="actions">
+                        <a href="<?= BASE_URL . 'mostrar-libro/' . $libro->ID_libro ?>" type="button" class='btn btn-success btn-sm ml-auto'>Reseña</a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>
+
+<?php require 'templates/layouts/footer.phtml'?>
