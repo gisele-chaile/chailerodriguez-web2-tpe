@@ -1,6 +1,8 @@
 <?php
     function autenticarSesion($respuesta){
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if(isset($_SESSION['ID_usuario'])){
         $respuesta->usuario = new stdClass();
         $respuesta->usuario->ID_usuario = $_SESSION['ID_usuario'];
