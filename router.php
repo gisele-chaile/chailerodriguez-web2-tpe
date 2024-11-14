@@ -43,6 +43,7 @@ switch ($parametros[0]){
     case 'mostrar-libro':
         $controlador = new LibrosControlador();
         $controlador->mostrarLibro($parametros[1]);
+            break;
     case 'mostrar-genero':
         $controlador = new GenerosControlador($respuesta);
         $controlador->mostrarGenero($parametros[1]);
@@ -62,6 +63,7 @@ switch ($parametros[0]){
         verificarSesion($respuesta);
         $controlador = new GenerosControlador($respuesta);
         $controlador->listarGeneros();
+        break;
     case 'formulario-libro':
         autenticarSesion($respuesta);
         verificarSesion($respuesta);
@@ -104,12 +106,13 @@ switch ($parametros[0]){
         verificarSesion($respuesta);
         $controlador = new LibrosControlador($respuesta);
         $controlador->editarLibro($parametros[1]);
+        break;
     case 'editar-genero':
         autenticarSesion($respuesta);    
         verificarSesion($respuesta);
         $controlador = new GenerosControlador($respuesta);
         $controlador->editarGenero($parametros[1]);
-
+        break;
     case 'mostrar-login':
         $controlador = new UsuarioControlador();
         $controlador->mostrarLogin();
@@ -130,6 +133,3 @@ switch ($parametros[0]){
             break;
     
     }
- 
-
-
