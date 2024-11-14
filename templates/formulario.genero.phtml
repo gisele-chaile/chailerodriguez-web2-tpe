@@ -1,24 +1,26 @@
 <?php require 'templates/layouts/header.phtml'?>
 
 <div class="container">
-    <h1><?= $genero ? 'Editar' : 'Agregar' ?> Genero</h1>
+<h1><?= isset($genero) ? ($genero ? 'Editar' : 'Agregar') : 'Agregar' ?> Genero</h1>
+
     <form action="<?= $genero ? BASE_URL . 'editar-genero/' . $genero->ID_genero : BASE_URL . 'agregar-genero/' ?>" method="POST">
 
     <div class="row">
         <div class="col-9">
             <div class="form-group">
                 <label>Nombre</label>
-                <input required name="Nombre" type="text" class="form-control">
+                <input required name="Nombre" type="text" class="form-control" value="<?=$genero ? $genero->Nombre : ''?>">
             </div>
         </div>
 
         <div class="form-group">
             <label>Descripción</label>
-            <textarea name="Descripcion" class="form-control" rows="3"></textarea>
+            <input type="text" class="form-control" name="Descripcion" value="<?= $genero ? $genero->Descripcion : '' ?>">
+        </div>
 
         <div class="form-group">
             <label>Géneros relacionados</label>
-            <textarea name="Relacionado" class="form-control" rows="3"></textarea>
+            <input type="text" class="form-control" name="Relacionado" value="<?= $genero ? $genero->Relacionado : '' ?>">
 
       
         <button type="submit" class="btn btn-primary mt-2">Guardar</button>
