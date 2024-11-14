@@ -1,17 +1,23 @@
 <?php require 'templates/layouts/header.phtml' ?>
-<div class="list-group">
-    <ul class="list-group">
-        <li class="list-group-item"><h2>Generos</h2></li>
+
+<div class="container">
+    <h2 class="pb-4">Generos</h2>
+        <ul class="list-group mt-4">
         <?php foreach($generos as $genero): ?>
-        <li class="list-group-item list-group-item-primary"><b><?=$genero->Nombre?> </b></li>
-        <li class="list-group-item list-group-item-secondary"><b><?=$genero->Descripcion ?> </b></li>
-        <li class="list-group-item list-group-item-success"><h6>Genero relacionado</h6><?= $genero->Relacionado ?></b></li>
- 
-    </ul>
-    <div class="actions">
-        <a href="<?='editar-genero/'. $genero->ID_genero ?>" type="button" class="list-group-item list-group-item-action list-group-item-secondary">Editar</a>
-        <a href="<?= 'eliminar-genero/'. $genero->ID_genero ?>" type="button"class="list-group-item list-group-item-action list-group-item-success">Eliminar</a>
-            <?php endforeach ?>
-    </div> 
+           <li class="list-group-item item-task">
+                <div class="label">
+                    <b><?=$genero->Nombre?> | <?=$genero->Descripcion ?>| <?=$genero->Relacionado ?> | </b>  
+                     
+                </div>
+                
+                <div class="actions">
+                    <a href="<?= BASE_URL.'editar-genero/'. $genero->ID_genero ?>" type="button" class='btn btn-success btn-sm ml-auto'>Editar</a>
+                    <a href="<?=BASE_URL.'eliminar-genero/'. $genero->ID_genero ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                
+                </div>
+            </li>
+        <?php endforeach ?>
+        </ul>
 </div>
-<?php require 'templates/layouts/footer.phtml' ?>
+
+<?php require 'templates/layouts/footer.phtml'?>
